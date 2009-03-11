@@ -1,0 +1,14 @@
+div.slider_control {
+	width: 200px;
+	height: 16px;
+	background: #eee;
+}
+div.slider_control div.knob {
+	background: #000;
+	width: 25px;
+	height: 16px;
+  color: white;
+  font-size: xx-small;
+  text-align: right;
+  cursor: move;
+}
