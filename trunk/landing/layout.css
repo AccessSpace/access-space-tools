@@ -53,8 +53,20 @@ a:hover, a:active	{
 	margin-bottom:10px;
 }
 
-#news	{
+#rightside{
 	float:right;
 	width:495px;
+}
+
+#news{
 	line-height:1.4em;
+}
+
+#bugreport form	{
+	width:350px;
+	text-align: left;
+}
+
+li{
+	margin-bottom:1em;
 }
