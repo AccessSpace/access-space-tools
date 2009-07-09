@@ -37,10 +37,10 @@
 <dt><a href="http://spacers.lowtech.org">Spacers</a></dt>
 <dd>Wiki of projects by Access Space participants.</dd>
 
-<dt><a href="http://access-space">Main Site</a></dt>
+<dt><a href="http://www.access-space.org">Main Site</a></dt>
 <dd>The main site for Access Space.</dd>
 
-<dt><a href="mailto:martyn@access-space.org?subject=Access Space Bug Report from <?=$_SERVER['REMOTE_ADDR'];?>&body=Your Name?%0A%0A%0ADescribe the issue.%0A%0A%0AIs it only happening on this machine?%0A%0A%0AHow Urgent is fixing it?%0A%0A%0A">
+<dt><a href="bugreport.php?user=<?=$_REQUEST['user']; ?>">
 Report a bug on this machine</a></dt>
 <dd>If there is something wrong with this machine please use this link to send us an email and report it so we can fix the problem.</dd>
 </dl>
@@ -64,7 +64,7 @@ Email:
 </div>
 -->
 </div>
-
+<div id="rightside">
 <div id="news">
 <h2>News and Events</h2>
 
@@ -110,14 +110,8 @@ if($iEnd)
 }
 ?>
 
-
-
 </div>
-
-
-
-
-
+</div>
 </div>
 
 </body>
