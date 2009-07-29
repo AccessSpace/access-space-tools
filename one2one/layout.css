@@ -1,0 +1,72 @@
+body	{
+}
+
+h2	{
+	font-family: sans-serif;
+}
+
+a:link, a:visited	{
+	text-decoration:none;
+	font-family: sans-serif;
+}
+
+a:hover, a:active	{
+	text-decoration: underline;
+}
+
+#page	{
+	width:950px;
+	height:955px;
+	background: url(images/lightpad.jpg) no-repeat;
+	margin: 0 auto;
+}
+
+#leftside	{
+	float:left;
+	width:420px;
+	border-right:1px solid #bbb;
+}
+
+#links dl	{
+	width:400px;
+}
+
+#links dt	{
+	font-size:1.2em
+}
+
+#links dd	{
+	margin:5px 0 10px 0;
+}
+
+#forms	{
+	width:420px;
+	border-top:1px solid #bbb;
+}
+
+#forms form	{
+	width:350px;
+	text-align: right;
+}
+
+#forms input	{
+	margin-bottom:10px;
+}
+
+#rightside{
+	float:right;
+	width:495px;
+}
+
+#news{
+	line-height:1.4em;
+}
+
+#bugreport form	{
+	width:350px;
+	text-align: left;
+}
+
+li{
+	margin-bottom:1em;
+}
