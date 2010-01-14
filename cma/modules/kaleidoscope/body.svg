@@ -1,0 +1,23 @@
+<g id="rotator" transform="translate({iMidWidth}, {iMidHeight})">
+      <g>
+        <g>
+          {.repeated section aRotations}
+              <g transform="rotate({fAngle})" style="clip-path: url(#{sInstance}_cp)">
+                  <use xlink:href="#{sInstance}_pg1"/>
+                  <use xlink:href="#{sInstance}_r1"/>
+              </g>
+          {.end}
+        </g>
+        <g transform="scale(1,-1)">
+          {.repeated section aRotations}
+              <g transform="rotate({fAngle})" style="clip-path: url(#{sInstance}_cp)">
+                  <use xlink:href="#{sInstance}_pg1"/>
+                  <use xlink:href="#{sInstance}_r1"/>
+              </g>
+          {.end}
+        </g>
+        {.section iRotationDuration}
+            <animateTransform attributeName="transform" type="rotate" begin="0s" dur="{iRotationDuration}s" values="0;359" repeatCount="indefinite"/>
+        {.end}
+      </g>
+    </g>

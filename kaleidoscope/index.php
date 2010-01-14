@@ -3,6 +3,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" href="controls.css" type="text/css" />
+	<script type="text/javascript">
+	var bControls = true;
+	var bViewer = true;
+	</script>
 	<script type="text/javascript" src="mootools.js"></script>
 	<script type="text/javascript" src="controls.js"></script>
 	<title>Slider Demo</title>
