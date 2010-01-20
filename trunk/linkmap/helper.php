@@ -217,7 +217,7 @@ class helper_plugin_linkmap extends DokuWiki_Plugin {
 	    
 	    //echo "sLine =" .$sLine."\n";
 	    $aMatches = null;
-	    preg_match_all('/\[\[([^\]]*)\]\]/', $sLine, $aMatches);
+	    preg_match_all('/\[\[([^\]\|]*)(\|([^\]]*))?\]\]/', $sLine, $aMatches);
 	    //echo "aMatches =" .var_export($aMatches, TRUE)."\n";
 	    
 	    foreach($aMatches[1] as $sLink)
