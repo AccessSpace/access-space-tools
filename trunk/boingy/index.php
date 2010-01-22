@@ -14,7 +14,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Graph Gear Demo</title>
 <!-- SWFObject embed by Geoff Stearns geoff@deconcept.com http://blog.deconcept.com/swfobject/ -->
-<link rel="stylesheet" type="text/css" href="biongy.css" />
+<link rel="stylesheet" type="text/css" href="boingy.css" />
 <script type="text/javascript" src="swfobject/swfobject.js"></script>
 
 <script language="JavaScript">

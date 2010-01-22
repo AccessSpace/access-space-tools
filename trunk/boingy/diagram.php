@@ -24,6 +24,7 @@
   //Get the dokuwiki link mapping object and get it to do its magic 
   if ($oMap =& new helper_plugin_linkmap())
   {
+    $oMap->sBasePath = DOKU_INC;
     $oMap->createMap('activity', 'date');
     $oMap->getFullMap();
   }
