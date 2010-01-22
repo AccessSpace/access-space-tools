@@ -197,7 +197,7 @@
 	//The main xmak starts here with a line of setting for the while diagram
 ?>
 
-<graph title="<?=$aNodes[$sSearch]['text'];?>" bgcolor="ffffff" linecolor="cccccc" viewmode="display" width="500" height="400" bounce="1" springforce="1" repelforce="1" resistance="1" segmentlength="3">
+<graph title="<?=$aNodes[$sSearch]['text'];?>" bgcolor="ffffff" linecolor="cccccc" viewmode="display" width="500" height="400" bounce="1" springforce="1" repelforce="1" resistance="1" segmentlength="2">
   <?php
   //looop around the nodes creating a line of xml for each
   foreach($aNodes as $aNode)
