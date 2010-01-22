@@ -15,7 +15,7 @@ class helper_plugin_linkmap extends DokuWiki_Plugin {
 	  var $aNameSpaces = array();
 	  var $iCacheFormat = 0;
 	  var $bUseCache = false;
-	  
+	  var $sBasePath = '';
   
     /**
      * Constructor
@@ -88,7 +88,7 @@ class helper_plugin_linkmap extends DokuWiki_Plugin {
 	    
 	    foreach($aNameSpaces as $sNameSpace)
       {
-        $sNameSpaceDir = 'data/pages/'.$sNameSpace.'/';
+        $sNameSpaceDir = $this->sBasePath.'data/pages/'.$sNameSpace.'/';
         
         $sVisiblePattern = '/\/.*[^\~]$/';
         
@@ -105,7 +105,7 @@ class helper_plugin_linkmap extends DokuWiki_Plugin {
              {
                $this->iMostRecent = $iCurrent;
              }
-             $id = str_replace(array('.txt','data/pages/','/'), array('','',':'), $entry);
+             $id = str_replace(array('.txt',$this->sBasePath.'data/pages/','/'), array('','',':'), $entry);
              $this->aFilesToConvert[$id] = $entry;
             }
           }
