@@ -14,10 +14,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Graph Gear Demo</title>
 <!-- SWFObject embed by Geoff Stearns geoff@deconcept.com http://blog.deconcept.com/swfobject/ -->
+<link rel="stylesheet" type="text/css" href="biongy.css" />
 <script type="text/javascript" src="swfobject/swfobject.js"></script>
-<link rel="stylesheet" type="text/css" href="examples/example-style.css" />
 
 <script language="JavaScript">
+  //the javascript functions that came with the demo but we might use the nodeNotify and something modified from jsSwitchXML to change the xml every few minutes
 	var flashMovie;
 	function init() {
 		if (document.getElementById) {
@@ -35,6 +36,7 @@
 		var xml = document.liveXml.liveXmlArea.value;
 		flashMovie.liveXML(xml);
 	}
+	//is run when a node is clicked we could get extra info and display it?
 	function nodeNotify(str) {
 		//document.getElementById("nodify").innerHTML = "<strong>Javascript Events:</strong> Selected Node: " + str;
 	}
@@ -48,7 +50,7 @@
 </head>
 
 <body>
-	<div id="wrap">
+<div id="wrap_junk">
 		<div id="gearspace">
 			<strong>You need to upgrade your Flash Player</strong>
 		</div>
@@ -59,26 +61,12 @@
 		<script type="text/javascript">
 			// <![CDATA[
 		
-			var so = new SWFObject("GraphGear.swf", "graphgear", "725", "400", "8");
-			//so.addVariable("graphXMLFile", "diagram.php?page=<?=urlencode($sPage);?>"); // rename to your xml file
-			
+			var so = new SWFObject("GraphGear.swf", "graphgear", "1270", "600", "8");
 			so.addVariable("graphXMLFile", "<?=$sXMLFile;?>"); // rename to your xml file
-			
-			
-			//so.addVariable("graphXMLFile", "diagram.php?page=<?=$sPage;?>"); // rename to your xml file
-			//so.addVariable("graphXMLFile", "text.xml"); // rename to your xml file
-			
-			//so.addVariable("graphXMLFile", "diagram.php"); // rename to your xml file
-			
-			//so.addVariable("graphXMLFile", "example1/example1.xml"); // rename to your xml file
-			//so.addVariable("graphXMLFile", "examples/example1/example1.xml"); // rename to your xml file
 			so.addParam("allowScriptAccess", "always");
 			so.addParam("scale", "noborder");
-			so.addParam("salign", "tl");
-			so.addParam("base", "");
-			//so.addParam("base", "examples");
-			
-				      
+			so.addParam("salign", "cc");
+			so.addParam("base", ""); 
 			so.write("gearspace");
 		
 			// ]]>
