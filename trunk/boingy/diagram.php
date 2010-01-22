@@ -101,87 +101,87 @@
     }
     //$aData  = array_merge_recursive($aData, $aLine['aInfo']);
   }
-	    //swap ':' for '-' as javascript just doesn't like it
-	    function safeID($sID)
-	    {
-	      return str_replace(':','-',$sID);
-	    }
-	    
-	    //create a sensible id for an edge
-	    function getEdgeID($sFrom, $sTo)
-	    {
-	      return safeID($sFrom.'_'.$sTo);
-	    }
-	    
-	    //create a new edge
-	    function new_edge($sFrom, $sTo)
-	    {
-	      $aEdge = array(
-                  'count'   => 0,
-                  'target'  => safeID($sTo),
-                  'source'  => safeID($sFrom),
-                  'id'      => getEdgeID($sFrom, $sTo),
-                  'label'   => ''
-                  );
-        return $aEdge;
-	    }
-	    
-	    //get the bottom namesspace from and ID
-	    function getNodeNameSpace($sID)
-	    {
-	      $aParts = split(':', $sID);
-	      $sNS = $aParts[0];
-	      return $sNS;
-	    }
-	    
-	    //create a new node
-	    function new_node($sID)
-	    {
-	      //what
-	      $aTypes = array(  'user' => 'CircleNode',
-	                        'skill' => 'CircleNode',
-	                        'project' => 'SquareNode',
-	                        'type' => 'SquareNode'
-	                        );
-	      $aParts = split(':', $sID);
-	      $sNS = $aParts[0];
-	      $sLeaf = $aParts[count($aParts) -1];
-	      $aNode = array(
-                  'count'  => 0,
-                  'id'     => safeID($sID),
-                  'link'    => 'index.php?page='.$sID,
-                  'type'    => $aTypes[$sNS],
-                  'text'   => ucwords(str_replace('_',' ',$sLeaf)),
-                  'ns'      => $sNS,
-                  );
-        return $aNode;
-      }
-      
-      //get a color for a node at the mo it works by baseing everything on a mid gray and changeing the Red for users, green for Projects and Blue for skills depending on how many times a node has been used
-      function getColor($aNode)
-      {
-        //get R G and B
-        $sR = 'cc';
-        if($aNode['ns'] == 'user')
-        {
-          $sR = dechex(255 - ($aNode['count'] % 255));
-        }
-        
-        $sG = 'cc';
-        if($aNode['ns'] == 'project')
-        {
-          $sG = dechex(255 - ($aNode['count'] % 255));
-        }
-        
-        
-        $sB = 'cc';
-        if($aNode['ns'] == 'skill')
-        {
-          $sB = dechex(255 - ($aNode['count'] % 255));
-        }
-        
-        return $sR.$sG.$sB;
-      }
+  //swap ':' for '-' as javascript just doesn't like it
+  function safeID($sID)
+  {
+    return str_replace(':','-',$sID);
+  }
+  
+  //create a sensible id for an edge
+  function getEdgeID($sFrom, $sTo)
+  {
+    return safeID($sFrom.'_'.$sTo);
+  }
+  
+  //create a new edge
+  function new_edge($sFrom, $sTo)
+  {
+    $aEdge = array(
+              'count'   => 0,
+              'target'  => safeID($sTo),
+              'source'  => safeID($sFrom),
+              'id'      => getEdgeID($sFrom, $sTo),
+              'label'   => ''
+              );
+    return $aEdge;
+  }
+  
+  //get the bottom namesspace from and ID
+  function getNodeNameSpace($sID)
+  {
+    $aParts = split(':', $sID);
+    $sNS = $aParts[0];
+    return $sNS;
+  }
+  
+  //create a new node
+  function new_node($sID)
+  {
+    //what
+    $aTypes = array(  'user' => 'CircleNode',
+                      'skill' => 'CircleNode',
+                      'project' => 'SquareNode',
+                      'type' => 'SquareNode'
+                      );
+    $aParts = split(':', $sID);
+    $sNS = $aParts[0];
+    $sLeaf = $aParts[count($aParts) -1];
+    $aNode = array(
+              'count'  => 0,
+              'id'     => safeID($sID),
+              'link'    => 'index.php?page='.$sID,
+              'type'    => $aTypes[$sNS],
+              'text'   => ucwords(str_replace('_',' ',$sLeaf)),
+              'ns'      => $sNS,
+              );
+    return $aNode;
+  }
+  
+  //get a color for a node at the mo it works by baseing everything on a mid gray and changeing the Red for users, green for Projects and Blue for skills depending on how many times a node has been used
+  function getColor($aNode)
+  {
+    //get R G and B
+    $sR = 'cc';
+    if($aNode['ns'] == 'user')
+    {
+      $sR = dechex(255 - ($aNode['count'] % 255));
+    }
+    
+    $sG = 'cc';
+    if($aNode['ns'] == 'project')
+    {
+      $sG = dechex(255 - ($aNode['count'] % 255));
+    }
+    
+    
+    $sB = 'cc';
+    if($aNode['ns'] == 'skill')
+    {
+      $sB = dechex(255 - ($aNode['count'] % 255));
+    }
+    
+    return $sR.$sG.$sB;
+  }
       
   //print out the xml version line has to be done like this cos php throws a fit if you do it in the main body of the XML
 	echo '<?xml version="1.0"?>';
@@ -196,7 +196,7 @@
 	//The main xmak starts here with a line of setting for the while diagram
 ?>
 
-<graph title="<?=$aNodes[$sSearch]['text'];?>" bgcolor="ffffff" linecolor="cccccc" viewmode="display" width="1000" height="800" bounce="1" springforce="1" repelforce="1" resistance="1" segmentlength="5">
+<graph title="<?=$aNodes[$sSearch]['text'];?>" bgcolor="ffffff" linecolor="cccccc" viewmode="display" width="500" height="400" bounce="1" springforce="1" repelforce="1" resistance="1" segmentlength="3">
   <?php
   //looop around the nodes creating a line of xml for each
   foreach($aNodes as $aNode)
