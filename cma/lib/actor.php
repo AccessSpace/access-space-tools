@@ -16,12 +16,28 @@ class actor
 	/**
 	 * @var string an identifier for this instance to put in xml ids etc.
 	 */
-	var $sInstance;
+	var $sInstance = '';
 	
 	/**
 	 * @var string the path of the directory the module is defined in
 	 */
-	var $sModulePath;
+	var $sModulePath = '';
+	
+	
+	/**
+		* 
+		* @var array
+		* array of controls
+		*/
+		var $aControls = array();
+
+	/**
+		* 
+		* @var array
+		* array of values
+		*/
+		var $aValues = array();
+	
 	
     /**
      * @param array $aParams
@@ -58,7 +74,9 @@ class actor
      */
     function expandTemplate($sTemplateName)
     {
-	  $sJSON = json_encode($this);
+      $aValues = $this->aValues;
+      $aValues['sInstance'] = $this->sInstance;
+      $sJSON = json_encode($aValues);
       $sTemplateFile = $this->sModulePath.'/'.$sTemplateName;
       $sTemplate = file_get_contents($sTemplateFile);
       $oTemplate = new JsonTemplate($sTemplate);
