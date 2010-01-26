@@ -46,10 +46,19 @@ class actor
      */
     function __construct($aParams, $bCalc = true)
     {
-       $this->sInstance = time()%1000; // just a test string
+       if(isset($aParams['sInstance']))
+       { 
+         $this->sInstance = $aParams['sInstance'];
+       }
+       else
+       {
+       
+         $this->sInstance = time()%1000; // just a test string
+       }
+       
        foreach($aParams as $sKey => $xValue)
        {
-         $this->$sKey = $xValue;
+         $this->aValues[$sKey] = $xValue;
        }
        
        $this->sModulePath = CONST_CMA_MODULES.(str_replace("actor_","", get_class($this)));

@@ -1,4 +1,4 @@
-<g id="rotator" transform="translate({center_x}, {center_y})">
+    <g id="{sInstance}_rotator" transform="translate({output_x}, {output_y})">
       <g>
         <g>
           {.repeated section rotations}

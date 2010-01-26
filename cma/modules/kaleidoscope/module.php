@@ -18,8 +18,12 @@
 		*/
 		var $aValues = array(
       'sides' => 3,
-      'output_width' => 500,
-      'output_height' => 500,
+      'radius' => 150,
+      //'output_width' => 300,
+      //'output_height' => 300,
+      
+      'output_x' => 150,
+      'output_y' => 150,
       'image_url' => 'images/Fagus_sylvatica_autumn_leaves.jpg',
       'rotation_duration' => 60,
       'slip_duration' => 60,
@@ -41,11 +45,11 @@
     function calc()
     {
           
-      $this->aValues['center_x'] = $this->aValues['output_width'] / 2; 
-      $this->aValues['center_y'] = $this->aValues['output_height'] / 2;
+      //$this->aValues['center_x'] = $this->aValues['output_width'] / 2; 
+      //$this->aValues['center_y'] = $this->aValues['output_height'] / 2;
       
       //echo "\n<br><pre>\noKaleidoscope =" .var_export($this, TRUE)."</pre>";
-      $this->aValues['radius'] = round(sqrt(($this->aValues['output_width'] * $this->aValues['output_width']) + ($this->aValues['output_height'] * $this->aValues['output_height'])) + 2, 1);
+      //$this->aValues['radius'] = round(sqrt(($this->aValues['output_width'] * $this->aValues['output_width']) + ($this->aValues['output_height'] * $this->aValues['output_height'])) + 2, 1);
       $this->aValues['angle_rad'] = M_PI/$this->aValues['sides'];
       $this->aValues['angle_deg'] = rad2deg($this->aValues['angle_rad']);
       $this->aValues['triangle_x'] = round($this->aValues['radius'] * cos($this->aValues['angle_rad']), 1);
@@ -60,7 +64,8 @@
         error('No Image data');
       }
       
-      $this->aValues['image_width'] = $this->aValues['output_width'] * $this->aValues['orginal_scale'];
+      ///$this->aValues['image_width'] = $this->aValues['output_width'] * $this->aValues['orginal_scale'];
+      $this->aValues['image_width'] = $this->aValues['radius'] * 2 * $this->aValues['orginal_scale'];
       $this->aValues['image_height'] = $this->aValues['image_data'][1] * ($this->aValues['image_width'] / $this->aValues['image_data'][0]);
       
       $this->aValues['rotations'] = array();
