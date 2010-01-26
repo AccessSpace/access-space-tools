@@ -1,6 +1,9 @@
 <?php
 
-$sJSON = '{"width":400,"height":400,"actors":[{"id":"testk","type":"kaleidoscope"}]}';
+$sJSON = '{"width":800,"height":800,"actors":[
+            {"sInstance":"test1","type":"kaleidoscope","sides":3, "radius":75, "rotation_duration":15},
+            {"sInstance":"test2","type":"kaleidoscope", "sides":5, "output_x":600, "output_y":400}
+          ]}';
 
 define('CONST_CMA',		dirname(__FILE__)."/");
 define('CONST_CMA_LIB', CONST_CMA."lib/");
@@ -13,7 +16,6 @@ require_once(CONST_CMA_LIB."jsontemplate.php");
   //echo "\n<br><pre>\nsJSON  =" .$sJSON ."</pre>";
   
   $aParameters = json_decode($sJSON, true);
-  //echo "\n<br><pre>\naParameters  =" .var_export($aParameters , TRUE)."</pre>";
   
   $aScene = array();
 
