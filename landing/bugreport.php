@@ -28,7 +28,7 @@
  <div id="bugreport">
 <?php
 
-@define('CONST_BUGREPORT_EMAIL_ADDR', 'martyn@access-space.org');
+@define('CONST_BUGREPORT_EMAIL_ADDR', 'access-space-techgroup@googlegroups.com');
 
 function spamcheck($field)
   {
