@@ -1,0 +1,9 @@
+         <path id="{sInstance}_level_0" fill="#003399" d="M0 0,2 0,1 1.732z" />
+{.repeated section aLevels}
+<g id="{sInstance}_level_{level}">
+	<use xlink:href="#{sInstance}_level_{last}" transform="matrix(0.5 0 0 0.5   0  0)" />
+         <use xlink:href="#{sInstance}_level_{last}" transform="matrix(0.5 0 0 0.5   1  0)" />
+         <use xlink:href="#{sInstance}_level_{last}" transform="matrix(0.5 0 0 0.5  0.5 0.866)" />
+</g>
+{.end}
+

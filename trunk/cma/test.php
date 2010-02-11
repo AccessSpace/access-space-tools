@@ -2,7 +2,8 @@
 
 $sJSON = '{"width":800,"height":800,"actors":[
             {"sInstance":"test1","type":"kaleidoscope","sides":3, "radius":75, "rotation_duration":15},
-            {"sInstance":"test2","type":"kaleidoscope", "sides":5, "output_x":600, "output_y":400}
+            {"sInstance":"test2","type":"kaleidoscope", "sides":5, "pos_control":[{"x":600,"y":400},{"x":400,"y":300}]},
+            {"sInstance":"test3","type":"sierpinsky", "levels":5, "size":200, "pos_control":[{"x":200,"y":200}, {"x":600,"y":400}]}
           ]}';
 
 define('CONST_CMA',		dirname(__FILE__)."/");
@@ -16,6 +17,7 @@ require_once(CONST_CMA_LIB."jsontemplate.php");
   //echo "\n<br><pre>\nsJSON  =" .$sJSON ."</pre>";
   
   $aParameters = json_decode($sJSON, true);
+  //echo "\n<br><pre>\naParameters  =" .var_export($aParameters , TRUE)."</pre>";
   
   $aScene = array();
 
