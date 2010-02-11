@@ -1,0 +1,14 @@
+    <g id="{sInstance}_rotator">
+        <g>
+         <g>
+          <use xlink:href="#{sInstance}_level_{levels}" transform="scale({scale})" />
+          </g>
+          {.section rotation_duration}
+            <animateTransform attributeName="transform" type="rotate" begin="0s" dur="{rotation_duration}s" values="0;359" repeatCount="indefinite"/>
+        {.end}      
+        
+        </g>
+        
+        <animateTransform attributeName="transform" type="translate" begin="0s" dur="{pos_duration}s" values="{pos_path}" repeatCount="indefinite"/>
+    </g>
+
