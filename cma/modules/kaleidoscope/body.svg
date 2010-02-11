@@ -1,4 +1,4 @@
-    <g id="{sInstance}_rotator" transform="translate({output_x}, {output_y})">
+    <g id="{sInstance}_rotator">
       <g>
         <g>
           {.repeated section rotations}
@@ -20,4 +20,6 @@
             <animateTransform attributeName="transform" type="rotate" begin="0s" dur="{rotation_duration}s" values="0;359" repeatCount="indefinite"/>
         {.end}
       </g>
+          <animateTransform attributeName="transform" type="translate" begin="0s" dur="{pos_duration}s" values="{pos_path}" repeatCount="indefinite"/>
     </g>
+

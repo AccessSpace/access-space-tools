@@ -103,6 +103,20 @@ class actor
     {
       return $this->expandTemplate('body.svg');
     }
+    
+    function getAnimatedXY($aControlPath, $fMaxX = 100, $fMaxY = 100)
+    {
+      $aClosedPath = $aControlPath;
+      $aClosedPath[] = $aControlPath[0];
+      $aAnim = array();
+      foreach($aClosedPath as $aPos)
+      {
+        $aAnim[] = ($aPos['x'] / 100 * $fMaxX) .",".($aPos['y'] / 100 *$fMaxY);
+      }
+     
+      $sAnimation = join(';', $aAnim);
+      return $sAnimation;
+    }
   
 	
 }

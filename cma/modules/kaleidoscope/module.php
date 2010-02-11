@@ -21,12 +21,19 @@
       'radius' => 150,
       //'output_width' => 300,
       //'output_height' => 300,
+      'pos_duration' => 60,
+      'pos_control' => array(
+                          array('x'=>150,'y'=>150),
+                          array('x'=>200,'y'=>200),
+                        ),
       
-      'output_x' => 150,
-      'output_y' => 150,
       'image_url' => 'images/Fagus_sylvatica_autumn_leaves.jpg',
       'rotation_duration' => 60,
       'slip_duration' => 60,
+      'slip_control' => array(
+                          array('x'=>0,'y'=>0),
+                          array('x'=>100,'y'=>100),
+                        ),
       'orginal_scale' => 2,
     );
 
@@ -75,9 +82,28 @@
         $this->aValues['rotations'][] = array('angle_deg' => $this->aValues['angle_deg'] * $i *2);
       }
       
-      $this->aValues['slip']['start'] = array('x' => 0, 'y' => 0);
+      $fSlipMaxX = ($this->aValues['triangle_x'] - 2) - $this->aValues['image_width'];
+      $fSlipMaxY = ($this->aValues['triangle_y'] - 2) - $this->aValues['image_height'];
       
-      $this->aValues['slip']['end'] = array('x'=> ($this->aValues['triangle_x'] - 2) - $this->aValues['image_width'],
-                        'y'=>($this->aValues['triangle_y'] - 2) - $this->aValues['image_height']);
+
+      $this->aValues['slip_path'] = $this->getAnimatedXY($this->aValues['slip_control'], $fSlipMaxX, $fSlipMaxY);
+
+      
+      $this->aValues['pos_path'] = $this->getAnimatedXY($this->aValues['pos_control']);
+      
+    }
+    
+    function getAnimatedXY($aControlPath, $fMaxX = 100, $fMaxY = 100)
+    {
+      $aClosedPath = $aControlPath;
+      $aClosedPath[] = $aControlPath[0];
+      $aAnim = array();
+      foreach($aClosedPath as $aPos)
+      {
+        $aAnim[] = ($aPos['x'] / 100 * $fMaxX) .",".($aPos['y'] / 100 *$fMaxY);
+      }
+     
+      $sAnimation = join(';', $aAnim);
+      return $sAnimation;
     }
   }

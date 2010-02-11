@@ -8,7 +8,7 @@
                     <image x="0" y="0" width="{image_width}" height="{image_height}" xlink:href="{image_url}" />
                 </g>
                 {.section slip_duration}
-                  <animateTransform attributeName="transform" type="translate" begin="0s" dur="{slip_duration}s" values="{slip.start.x},{slip.start.y};{slip.end.x},{slip.end.y};{slip.start.x},{slip.start.y}" repeatCount="indefinite"/>
+                  <animateTransform attributeName="transform" type="translate" begin="0s" dur="{slip_duration}s" values="{slip_path}" repeatCount="indefinite"/>
                 {.end}
             </g>
             
