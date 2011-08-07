@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Boingy</title>
+<!-- SWFObject embed by Geoff Stearns geoff@deconcept.com http://blog.deconcept.com/swfobject/ -->
+<script type="text/javascript" src="graphgear/swfobject/swfobject.js"></script>
+<link rel="stylesheet" type="text/css" href="graphgear/examples/example-style.css" />
+<script language="JavaScript" src="graphgear/source/graphgear.js"></script>
+
+</head>
+
+<body>
+		
+		<div id="gearspace">
+			<strong>You need to upgrade your Flash Player</strong>
+		</div>
+		
+		<script type="text/javascript">
+			// <![CDATA[
+		
+			var so = new SWFObject("graphgear/GraphGear.swf", "graphgear", "725", "400", "8");
+			so.addVariable("graphXMLFile", "empty.xml"); // rename to your xml file
+			so.addParam("allowScriptAccess", "always");
+			so.addParam("scale", "noborder");
+			so.addParam("salign", "tl");
+			so.addParam("base", "");
+			
+				      
+			so.write("gearspace");
+		
+			// ]]>
+		</script>
+<h2>TODO</h2>
+		<ul>
+		<li>Implement getting nodes from api_examples/restapi.json</li>
+		<li>Implement delaying between writing each edge</li>
+		<li>Implement getting nodes from api_examples/restapi.class.json</li>
+		</ul>
+		
+		
+</body>
+</html>
