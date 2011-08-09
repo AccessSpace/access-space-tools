@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<gconf>
+	<dir name="desktop">
+		<dir name="gnome">
+			<dir name="session">
+				<entry name="idle_delay" mtime="1310033862" type="int" value="20"/>
+			</dir>
+			<dir name="applications">
+				<dir name="browser">
+					<entry name="exec" mtime="1310033653" type="string">
+						<stringvalue>iceweasel</stringvalue>
+					</entry>
+				</dir>
+			</dir>
+		</dir>
+	</dir>
+	<dir name="apps">
+		<dir name="panel">
+			<dir name="default_setup">
+				<dir name="objects">
+					<dir name="browser_launcher">
+						<entry name="launcher_location" mtime="1310035166" type="string">
+							<stringvalue>iceweasel.desktop</stringvalue>
+						</entry>
+					</dir>
+				</dir>
+			</dir>
+		</dir>
+		<dir name="gnome-screensaver">
+			<entry name="idle_delay" mtime="1310032461" type="int" value="15"/>
+			<entry name="logout_enabled" mtime="1310032416" type="bool" value="true"/>
+			<entry name="logout_delay" mtime="1310032402" type="int" value="20"/>
+			<entry name="user_switch_enabled" mtime="1310032361" type="bool" value="false"/>
+		</dir>
+		<dir name="nautilus">
+			<dir name="preferences">
+				<entry name="show_image_thumbnails" mtime="1310026916" type="string">
+					<stringvalue>always</stringvalue>
+				</entry>
+				<entry name="always_use_location_entry" mtime="1310025179" type="bool" value="true"/>
+			</dir>
+		</dir>
+	</dir>
+</gconf>

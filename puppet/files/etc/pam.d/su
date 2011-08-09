@@ -1,0 +1,5 @@
+session       required   pam_env.so readenv=1 envfile=/etc/default/locale
+session    optional   pam_mail.so nopen
+@include common-auth
+@include common-account
+@include common-session
