@@ -1,0 +1,11 @@
+# This is not really a .desktop file like the rest, but it's useful to treat
+# it as such
+
+[GdmGreeterTheme]
+Encoding=UTF-8
+Greeter=accessspace.xml
+Name=Access Space
+Description=Access Space Theme
+Author=Access Space
+Copyright=(c) 2009 Access Space Network (www.access-space.org)
+Screenshot=screenshot.png
