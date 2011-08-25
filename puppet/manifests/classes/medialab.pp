@@ -45,6 +45,7 @@ class medialab {
 #    }
 
 	 package {[
+		task-desktop,
 		chromium,
 		jedit,
 		kde,
