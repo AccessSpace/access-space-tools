@@ -118,16 +118,18 @@ file {"/etc/gdm3/greeter.gconf-defaults":
      mode    => 644,
      owner   => root,
      group   => root,
+     require => [Package["task-desktop"]],
+
      source  => "puppet:///files/etc/gdm3/greeter.gconf-defaults";
 
 
 
-"/usr/share/icons/gnome/scalable/places/accessspace.svg":
-     ensure  => present,
-     mode    => 644,
-     owner   => root,
-     group   => root,
-     source  => "puppet:///files/usr/share/icons/gnome/scalable/places/accessspace.svg";
+#"/usr/share/icons/gnome/scalable/places/accessspace.svg":
+#     ensure  => present,
+#     mode    => 644,
+#     owner   => root,
+#     group   => root,
+#     source  => "puppet:///files/usr/share/icons/gnome/scalable/places/accessspace.svg";
 
 
     }

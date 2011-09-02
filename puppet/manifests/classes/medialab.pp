@@ -4,53 +4,16 @@
 
 class medialab {
 
-
-	file {"/etc/apt/sources.list":
-        	owner   => root,
-        	group   => root,
-	        mode    => 664,
-        	notify  => service[ssh],
-        	source  => "puppet:///files/etc/apt/sources.list",
-        	ensure  => present,
+	 package {"task-desktop":
+		ensure	=> latest,
 		require => [Package["debian-multimedia-keyring"]]
-	 }
-
-	file {"/var/cache/apt/archives/debian-multimedia-keyring_2010.12.26_all.deb":
-        	owner   => root,
-        	group   => root,
-	        mode    => 664,
-        	notify  => service[ssh],
-        	source  => "puppet:///files/debian-multimedia-keyring_2010.12.26_all.deb",
-        	ensure  => present
-	 }
-
-	package{debian-multimedia-keyring:
-
-		provider => dpkg,
-                source   => "/var/cache/apt/archives/debian-multimedia-keyring_2010.12.26_all.deb",
-		require  => [File["/var/cache/apt/archives/debian-multimedia-keyring_2010.12.26_all.deb"]]
-	}
-	
-	exec{"aptitude update":
-		path => "/usr/bin:/usr/sbin:/bin",
-		 require => [Package["debian-multimedia-keyring"], file["/etc/apt/sources.list"]]
-		}
-
-#  service {
-#    gdm3	:
-#      enable => true,
-#      ensure => true,
-#      hasrestart => true,
-#      restart => "/etc/init.d/gdm3 restart",
-#    }
+	  }
 
 	 package {[
-		task-desktop,
 		chromium,
 		jedit,
-		kde,
+		less,
 		blender,
-		arduino,
 		audacity,
                 vlc,
                 stellarium,
@@ -61,17 +24,16 @@ class medialab {
                 ssh,
 		cron-apt,
 		ntp,
-		gftp,
-		openclipart,
-		"openclipart-openoffice.org",
+		#gftp,
+		#openclipart,
+		#"openclipart-openoffice.org",
 		swfmill,
 		rhino,
 		iceweasel-firebug,
-		"openoffice.org-impress",
-		eclipse,
+		#"openoffice.org-impress",
 		git,
   	        ntpdate,
-	        pv,
+	        #pv,
                 lshw,
                 vim,
                 icedove,
@@ -81,14 +43,11 @@ class medialab {
 		msttcorefonts, 
 		subversion,
 		inkscape,
-		kicad,
+		#kicad,
 		php5-cli,
-		expect,
-		#mkisofs,
-		zsh,
-		sudo,
+		#expect,
+		#zsh,
 		abiword,
-		avr-libc,
 		avrdude,
 		brasero,
 		dia,
@@ -96,8 +55,6 @@ class medialab {
 		exuberant-ctags,
 		graphviz,
 		mercurial,
-		#netbeans-ide,
-		#opera,
 		ttf-arphic-uming,
 		ttf-baekmuk,
 		ttf-bengali-fonts,
@@ -114,12 +71,20 @@ class medialab {
 		ttf-sil-gentium-basic,
 		ttf-tamil-fonts,
 		ttf-telugu-fonts,
-		unrar
-	
-	
+		unrar,
+		gftp
+
+		#arduino,
+		#avr-libc,
+		#eclipse,
+		#netbeans-ide,
+		#opera,
+
 		]:
 		ensure	=> latest,
 		require => [Package["debian-multimedia-keyring"]]
+		#require => [Exec["aptitude dist-upgrade -y"]]
+
 	}
 
 	if ($::kernelrelease =~ /.*64/){
@@ -141,9 +106,10 @@ class medialab {
 	#TODO : ADD skype,
 
 	package {[
-		epiphany-browser,
+		#epiphany-browser,
 		update-notifier,
-		samba
+		filezilla,
+		#samba
 		]:
 		ensure  => absent,
 	}
@@ -157,7 +123,18 @@ class medialab {
 	        mode    => 664,
         	#notify  => service[gdm3],
         	source  => "puppet:///files/etc/gconf/gconf.xml.defaults/%gconf-tree.xml",
-        	ensure  => present
+        	ensure  => present,
+		require => [Package["task-desktop"]],
+
 	 }
-    
+
+
+ cron { logoff:
+   command => "service gdm3 restart",
+   user => root,
+   hour => 19,
+   minute => 0
+ }
+
+
 }

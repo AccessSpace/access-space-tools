@@ -5,10 +5,16 @@ $extlookup_precedence = ["yphosts"]
 
 
 node default {
-    include puppet
-    include ssh
-    include ipaddress
-    include ypbind
-    include medialab
+
+    include dist
+	
+    if ($::lsbdistrelease == "testing")
+    {	
+        include ipaddress    
+    	include puppet
+    	include ssh
+    	include ypbind
+    	include medialab
+    }
 
 }
